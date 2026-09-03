@@ -16,11 +16,11 @@ return (
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
 
             {/* Photo label */}
-            <div className="absolute bottom-3 left-4">
+            {/* <div className="absolute bottom-3 left-4">
             <span className="rounded-full bg-white/90 px-3 py-1 text-sm font-semibold text-purple-600 shadow">
                 Nature
             </span>
-            </div>
+            </div> */}
         </div>
 
         {/* Card Content */}
