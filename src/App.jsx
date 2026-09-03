@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Card from './components/Card'
 import axios from 'axios';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 function App() {
   const [images, setImages] = useState([]);
@@ -27,11 +29,17 @@ function App() {
 
   return (
   <div>
-    <h1 className="mb-8 text-center text-4xl font-bold text-purple-600"> Pixabay Image Gallery </h1>
-    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"> 
-      {images.map((image) => ( 
-        <Card key={image.id} image={image} /> 
-      ))} 
+    <div className="min-h-screen bg-gray-100">
+      <Header />
+      <main className="mx-auto max-w-7xl px-6 py-10">
+        <h1 className="mb-8 text-center text-4xl font-bold text-purple-600"> Pixabay Image Gallery </h1>
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"> 
+          {images.map((image) => ( 
+            <Card key={image.id} image={image} /> 
+          ))} 
+        </div>
+      </main>
+      <Footer />
     </div>
   </div>
   )
