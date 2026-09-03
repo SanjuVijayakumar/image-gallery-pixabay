@@ -1,14 +1,14 @@
 import React from 'react'
 
-const Card = () => {
+const Card = ({ image }) => {
 return ( 
     <div className="group w-full max-w-sm overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
 
         {/* Image */}
         <div className="relative overflow-hidden">
             <img
-            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
-            alt="Nature"
+            src={image.webformatURL}
+            alt={image.tags}
             className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
 
@@ -28,51 +28,37 @@ return (
 
             {/* Title */}
             <h2 className="mb-2 text-xl font-bold text-gray-800">
-            Photo by John Doe
+            Photo by {image.user}
             </h2>
-
-            {/* Description */}
-            {/* <p className="mb-5 text-sm text-gray-500">
-            Beautiful nature photography captured in a peaceful environment.
-            </p> */}
 
             {/* Stats */}
             <ul className="space-y-3">
 
             <li className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-1">
                 <strong className="text-gray-600">Views</strong>
-                <span className="font-semibold text-purple-600">4,000</span>
+                <span className="font-semibold text-purple-600">{image.views}</span>
             </li>
 
             <li className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-1">
                 <strong className="text-gray-600">Downloads</strong>
-                <span className="font-semibold text-purple-600">300</span>
+                <span className="font-semibold text-purple-600">{image.downloads}</span>
             </li>
 
             <li className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-1">
                 <strong className="text-gray-600">Likes</strong>
-                <span className="font-semibold text-purple-600">400</span>
+                <span className="font-semibold text-purple-600">{image.likes}</span>
             </li>
 
             </ul>
 
             {/* Hashtags */}
             <div className="mt-5 flex flex-wrap gap-2 border-t pt-4">
-            <span className="rounded-full bg-purple-50 px-3 py-1 text-xs font-medium text-purple-600">
-                #nature
-            </span>
-
-            <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-600">
-                #photography
-            </span>
-
-            <span className="rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-600">
-                #landscape
-            </span>
-
-            <span className="rounded-full bg-pink-50 px-3 py-1 text-xs font-medium text-pink-600">
-                #beautiful
-            </span>
+                {image.tags.split(',').map((tag, index) => ( 
+                    <span key={index} className="rounded-full bg-purple-50 px-3 py-1 text-xs font-medium text-purple-600" 
+                    > 
+                        #{tag.trim()} 
+                    </span> 
+                ))}
             </div>
 
         </div>
